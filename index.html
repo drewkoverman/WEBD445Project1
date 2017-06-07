@@ -33,7 +33,7 @@
         </div>
       </div><!-- /.container-fluid -->
     </nav>
-    <section class="jumbotron hero" style="background-image: url('images/hero.jpg')">
+    <section  class="jumbotron hero" style="background-image: url('images/hero.jpg')">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-7">
@@ -43,12 +43,12 @@
         </div>
       </div>
     </section>
-    <section>
+    <section id="app">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
             <div class="form-group has-feedback">
-              <input type="text" placeholder="Filter Specific Order..." class="form-control"  />
+              <input type="text" placeholder="Filter Specific Order..." class="form-control" v-model="search"  />
               <i class="fa fa-search form-control-feedback"></i>
             </div>
 
@@ -67,214 +67,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
+                <tr v-for="item in items | filterBy search ">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.email }}
+                  <td>{{ item.type }}</td>
+                  <td>{{ item.destination }}</td>
+                  <td>{{ item.orginal }}</td>
+                  <td>{{ item.date }}</td>
+                  <td>{{ item.felxibility }}</td>
                   <td>
                     <button>
                       <span class="fa fa-trash-o"></span>
                     </button>
                   </td>
                 </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>[CONTENT]</td>
-                  <td>
-                    <button>
-                      <span class="fa fa-pencil-square-o"></span>
-                    </button>
-                  </td>
-                  <td>
-                    <button>
-                      <span class="fa fa-trash-o"></span>
-                    </button>
-                  </td>
+
                 </tr>
               </tbody>
             </table>
@@ -346,6 +153,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
