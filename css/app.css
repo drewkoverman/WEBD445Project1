@@ -127,6 +127,12 @@
 	width: 120px;
 }
 
+.label {
+	display: block;
+	margin-top: 4px;
+	padding: 5px 0;
+}
+
 footer {
 	padding-top: 20px;
 	background-color: #7a99ad;
