@@ -1,14 +1,55 @@
 var apiURL = "https://api.myjson.com/bins/q95f1";
 
+Vue.component('navigation', {
+	template: '#navigation'
+});
+
+Vue.component('hero-banner', {
+	template: '#hero-banner',
+	props: ['title', 'desc']
+});
+
+Vue.component('frameworks', {
+	template: '#frameworks',
+	props: ['title']
+});
+
+Vue.component('footer-component', {
+	template: '#footer-component',
+	props: ['year', 'owner'],
+	filters: {
+		YYYY: function (date) {
+			return moment(date).format('YYYY');
+		}
+	}
+});
+
+Vue.component('leads', {
+	template: '#leads-template',
+	props: ['item']
+});
+
+Vue.component('order-form', {
+	template: '#order-form'
+})
+
 var app = new Vue({
 	el: '#app',
 	data: {
 		items: [],
+		title: 'Ready for a <strong>Stress-Free</strong> Move?',
+		desc: 'HouseCraft will take all the stress out of moving. The <strong>moving</strong> app will determine to make your move smoothly.',
 		search: '',
+		movingDate: new Date(),
+		fullName: '',
+		email: '',
+		flex: 'yes',
+		dwellingType: '',
 		startingZip: '',
     startingCity: '',
     endingZip: '',
-    endingCity: ''
+    endingCity: '',
+		date: new Date()
 	},
 	mounted: function() {
 		axios.get(apiURL).then(response => this.items = response.data);
@@ -45,6 +86,7 @@ var app = new Vue({
 				app.startingCity = "Invalid Zipcode";
 			})
 		}, 500),
+
 		lookupEndingZip: _.debounce(function () {
 			var app = this;
 			app.endingCity = "Searching...";
@@ -54,6 +96,36 @@ var app = new Vue({
 			.catch(function (error) {
 				app.endingCity = "Invalid Zipcode";
 			})
-		}, 500)
+		}, 500),
+
+		addItem: function() {
+				var id = $('table tbody tr').each(function() {
+					$(this).attr('id', $(this).index() + 1);
+				});
+
+				this.items.push({
+					id: id.length,
+					name: this.fullName,
+					email: this.email,
+					type: this.dwellingType,
+					destination: this.endingCity,
+					orginal: this.startingCity,
+					date: this.movingDate,
+					felxibility: this.flex
+				});
+
+				this.fullName = null;
+				this.email = null;
+				this.dwellingType = null;
+				this.endingCity = null;
+				this.startingCity = null;
+				this.movingDate = null;
+				this.flex = null;
+
+		},
+
+		deleteItem: function(item) {
+			this.items.splice(item, 1);
+		}
 	}
-})
+});
