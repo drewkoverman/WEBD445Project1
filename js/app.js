@@ -1,4 +1,4 @@
-var apiURL = "https://api.myjson.com/bins/q95f1";
+var apiURL = "https://api.myjson.com/bins/1gt3ur";
 
 Vue.component('navigation', {
 	template: '#navigation'
@@ -40,10 +40,10 @@ var app = new Vue({
 		title: 'Ready for a <strong>Stress-Free</strong> Move?',
 		desc: 'HouseCraft will take all the stress out of moving. The <strong>moving</strong> app will determine to make your move smoothly.',
 		search: '',
-		movingDate: new Date(),
+		movingDate: null,
 		fullName: '',
 		email: '',
-		flex: 'yes',
+		flex: false,
 		dwellingType: '',
 		startingZip: '',
     startingCity: '',
@@ -55,19 +55,26 @@ var app = new Vue({
 		axios.get(apiURL).then(response => this.items = response.data);
 	},
 	computed: {
+
 		filteredSearch: function() {
 			return this.items.filter((item) => {
 				return item.name.match(this.search)
 			})
+		},
+
+		isValid: function() {
+			return this.fullname != '' && this.email != '' && this.endingZip != '' && this.startingZip != '' && this.movingDate != '' && this.dwellingType != ''
 		}
 	},
 	watch: {
+
 		startingZip: function() {
 			this.startingCity = '';
 			if (this.startingZip.length == 5) {
 				this.lookupStartingZip();
 			}
 		},
+
 		endingZip: function() {
 			this.endingCity = '';
 			if(this.endingZip.length == 5) {
@@ -76,6 +83,7 @@ var app = new Vue({
 		}
 	},
 	methods: {
+
 		lookupStartingZip: _.debounce(function () {
 			var app = this;
 			app.startingCity = "Searching...";
@@ -110,17 +118,19 @@ var app = new Vue({
 					type: this.dwellingType,
 					destination: this.endingCity,
 					orginal: this.startingCity,
-					date: this.movingDate,
+					date: moment(this.movingDate).format('MM/DD/YY'),
 					felxibility: this.flex
 				});
 
-				this.fullName = null;
-				this.email = null;
-				this.dwellingType = null;
-				this.endingCity = null;
-				this.startingCity = null;
-				this.movingDate = null;
-				this.flex = null;
+				this.fullName = "";
+				this.email = "";
+				this.dwellingType = "";
+				this.endingCity = "";
+				this.startingCity = "";
+				this.movingDate = "";
+				this.flex = "";
+				this.startingZip = "";
+				this.endingZip = "";
 
 		},
 

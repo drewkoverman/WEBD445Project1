@@ -7,7 +7,7 @@
 		"destination": "New York, NY",
 		"orginal": "Dayton, OH",
 		"date": "4/4/16",
-		"felxibility": "yes"
+		"felxibility": true
 	},
 	{
 		"id": 2,
@@ -17,7 +17,7 @@
 		"destination": "Boston, MA",
 		"orginal": "Columbus, OH",
 		"date": "1/4/16",
-		"felxibility": "no"
+		"felxibility": false
 	},
 	{
 		"id": 3,
@@ -27,7 +27,7 @@
 		"destination": "Centerville, OH",
 		"orginal": "Miamisburg, OH",
 		"date": "11/12/15",
-		"felxibility": "yes"
+		"felxibility": true
 	},
 	{
 		"id": 4,
@@ -37,7 +37,7 @@
 		"destination": "Albnay, NH",
 		"orginal": "Albuquerque, NM",
 		"date": "8/23/16",
-		"felxibility": "yes"
+		"felxibility": true
 	},
 	{
 		"id": 5,
@@ -47,7 +47,7 @@
 		"destination": "Columbus, OH",
 		"orginal": "Sidney, OH",
 		"date": "5/12/16",
-		"felxibility": "no"
+		"felxibility": false
 	},
 	{
 		"id": 6,
@@ -57,7 +57,7 @@
 		"destination": "Chicago, IL",
 		"orginal": "Virginia Beach, VA",
 		"date": "11/20/16",
-		"felxibility": "no"
+		"felxibility": false
 	},
 	{
 		"id": 7,
@@ -67,7 +67,7 @@
 		"destination": "Chicago, IL",
 		"orginal": "Virginia Beach, VA",
 		"date": "11/20/16",
-		"felxibility": "no"
+		"felxibility": false
 	},
 	{
 		"id": 7,
@@ -77,7 +77,7 @@
 		"destination": "Chicago, IL",
 		"orginal": "Virginia Beach, VA",
 		"date": "11/20/16",
-		"felxibility": "no"
+		"felxibility": false
 	},
 	{
 		"id": 6,
@@ -87,6 +87,6 @@
 		"destination": "Chicago, IL",
 		"orginal": "Virginia Beach, VA",
 		"date": "11/20/16",
-		"felxibility": "no"
+		"felxibility": false
 	}
 ]

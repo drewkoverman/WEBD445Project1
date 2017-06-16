@@ -120,7 +120,7 @@
 
 .frameworks a:hover img {
 	filter: grayscale(0%);
-	cursor:default;
+	cursor: pointer;
 }
 
 .frameworks img[src="images/vue.png"], .frameworks img[src="images/bootstrap.png"] {

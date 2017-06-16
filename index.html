@@ -29,9 +29,20 @@
           <div class="row">
             <div class="col-md-8">
               <div class="table-responsive">
-                <div class="form-group has-feedback">
-                  <input type="text" placeholder="Filter Specific Order..." class="form-control" v-model="search" />
+                <div class="form-group has-feedback" v-show="items.length">
+                  <input type="text" placeholder="Search By Name..." class="form-control" v-model="search" />
                   <i class="fa fa-search form-control-feedback"></i>
+                </div>
+                <div class="alert alert-danger" role="alert" v-show="!items.length">
+                  <p>
+                    There are <strong>No Items or Orders</strong>, enter a order
+                  </p>
+
+                </div>
+                <div v-show="!items.length">
+                  <p>
+                    <img src="http://38.media.tumblr.com/tumblr_manw3wHGbB1qcxtm5o2_500.gif" class="img-responsive img-thumbnail center-block"  />
+                  </p>
                 </div>
                 <table class="table table-condensed table-striped">
                   <thead>
@@ -55,7 +66,14 @@
                       <td>{{ item.destination }}</td>
                       <td>{{ item.orginal }}</td>
                       <td>{{ item.date }}</td>
-                      <td>{{ item.felxibility }}</td>
+                      <td>
+                        <span v-if="item.felxibility === true">
+                          Yes
+                        </span>
+                        <span v-else>
+                          No
+                        </span>
+                      </td>
                       <td>
                         <button class="btn btn-app btn-xs fa-lg" v-on:click.prevent="deleteItem(item)">
                           <span class="fa fa-trash-o"></span>
@@ -101,7 +119,7 @@
                     <input type="checkbox" v-model="flex" /> My Date is flexible
                   </label>
                 </div>
-                <button class="btn btn-app btn-block" v-on:click="addItem">Mint My Move</button>
+                <button class="btn btn-app btn-block" v-on:click="addItem" v-bind:disabled="!isValid">Mint My Move</button>
                 <br  />
                 </form>
               </div>
@@ -119,23 +137,6 @@
         <input type="text" placeholder="Filter Specific Order..." class="form-control" />
         <i class="fa fa-search form-control-feedback"></i>
       </div>
-    </template>
-
-    <template id="leads-template">
-        <tr>
-          <td>{{ item.name }}</td>
-          <td>{{ item.email }}
-          <td>{{ item.type }}</td>
-          <td>{{ item.destination }}</td>
-          <td>{{ item.orginal }}</td>
-          <td>{{ item.date }}</td>
-          <td>{{ item.felxibility }}</td>
-          <td>
-            <button class="btn btn-app btn-xs fa-lg" @click.native="deleteItem(item)">
-              <span class="fa fa-trash-o"></span>
-            </button>
-          </td>
-        </tr>
     </template>
 
     <template id="hero-banner">
