@@ -24,15 +24,6 @@ Vue.component('footer-component', {
 	}
 });
 
-Vue.component('leads', {
-	template: '#leads-template',
-	props: ['item']
-});
-
-Vue.component('order-form', {
-	template: '#order-form'
-})
-
 var app = new Vue({
 	el: '#app',
 	data: {
@@ -131,7 +122,6 @@ var app = new Vue({
 				this.flex = "";
 				this.startingZip = "";
 				this.endingZip = "";
-
 		},
 
 		deleteItem: function(item) {
