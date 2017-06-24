@@ -78,7 +78,7 @@ var app = new Vue({
 		lookupStartingZip: _.debounce(function () {
 			var app = this;
 			app.startingCity = "Searching...";
-			axios.get('http://ZiptasticAPI.com/' + app.startingZip).then(function (response) {
+			axios.get('https://ZiptasticAPI.com/' + app.startingZip).then(function (response) {
 				app.startingCity = response.data.city + ', ' + response.data.state
 			})
 			.catch(function (error) {
@@ -89,7 +89,7 @@ var app = new Vue({
 		lookupEndingZip: _.debounce(function () {
 			var app = this;
 			app.endingCity = "Searching...";
-			axios.get('http://ZiptasticAPI.com/' + app.endingZip).then(function (response) {
+			axios.get('https://ZiptasticAPI.com/' + app.endingZip).then(function (response) {
 				app.endingCity = response.data.city + ', ' + response.data.state
 			})
 			.catch(function (error) {
